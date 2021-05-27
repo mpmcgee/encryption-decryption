@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static String encrypt(String msg) {
+    public static void encrypt(String msg) {
 
         String encMsg="";
         int x;
@@ -18,36 +18,113 @@ public class Main {
             }
             encMsg += String.valueOf((char)x);
         }
-        return encMsg;
+
+        System.out.println(encMsg);
+
     }
 
-    public static String keyEncrypt(String msg, int key) {
+    public static void keyEncrypt(String msg, int key) {
 
         String encMsg="";
         int x;
 
         for (int i = 0; i < msg.length(); i++) {
-            if (!(Character.isLetter(msg.charAt(i)))) {
-                x = msg.charAt(i);
-            } else {
-                x = msg.charAt(i) + key;
-                while (x > 122) {
-                    x -= 26;
-                }
-            }
+            // if (!(Character.isLetter(msg.charAt(i)))) {
+            //     x = msg.charAt(i);
+            // } else {
+            x = msg.charAt(i) + key;
+            // while (x > 122) {
+            //     x -= 26;
+            // }
+
+
+            // }
 
             encMsg += String.valueOf((char)x);
         }
-        return encMsg;
+
+
+
+        System.out.println(encMsg);
+    }
+
+    public static void keyDecrypt(String msg, int key) {
+        String encMsg="";
+        int x;
+
+        for (int i = 0; i < msg.length(); i++) {
+            // if (!(Character.isLetter(msg.charAt(i)))) {
+            //     x = msg.charAt(i);
+            // } else {
+            x = msg.charAt(i) - key;
+            // while (x > 122) {
+            //     x -= 26;
+            // }
+
+
+            // }
+
+            encMsg += String.valueOf((char)x);
+        }
+
+
+        System.out.println(encMsg);
     }
 
 
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String message = scanner.nextLine();
-        int key = scanner.nextInt();
+        // Scanner scanner = new Scanner(System.in);
+        // String dir = scanner.nextLine();
+        // String message = scanner.nextLine();
+        // int key = scanner.nextInt();
 
-        System.out.println(keyEncrypt(message, key));
+        // System.out.println(keyEncrypt(message, key));
+
+        // if (dir.equals("enc")) {
+        //     System.out.println(keyEncrypt(message, key));
+        // } else {
+        //     System.out.println(keyDecrypt(message, key));
+        // }
+
+        switch(args[0]) {
+            case "-mode":
+                if ("enc".equals(args[1])){
+                    if("-key".equals(args[2])){
+                        keyEncrypt(args[5], Integer.parseInt(args[3]));
+                        break;
+                    } else if ("-data" ==  args[2]){
+                        keyEncrypt(args[3], 0);
+                        break;
+                    } else {
+                        keyEncrypt("", 0);
+                        break;
+                    }
+                } else if ("dec".equals(args[1])){
+                    if("key".equals(args[2])){
+                        keyDecrypt(args[5], Integer.parseInt(args[3]));
+                        break;
+                    } else if ("-data" ==  args[2]){
+                        keyDecrypt(args[3], 0);
+                        break;
+                    } else {
+                        keyDecrypt("", 0);
+                        break;
+                    }
+                }
+            case ("-key"):
+                if ("-data" == args[2]) {
+                    keyEncrypt(args[1], Integer.parseInt(args[3]));
+                    break;
+                } else {
+                    keyEncrypt("", Integer.parseInt(args[3]));
+                    break;
+                }
+            case ("-data"):
+                keyEncrypt(args[1], 0);
+
+            default:
+                System.out.println("invalid input");
+        }
     }
 }
