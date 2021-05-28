@@ -1,6 +1,6 @@
 package encryptdecrypt;
 import java.lang.*;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 
 public class Main {
@@ -74,57 +74,77 @@ public class Main {
 
 
     public static void main(String[] args) {
-        // Scanner scanner = new Scanner(System.in);
-        // String dir = scanner.nextLine();
-        // String message = scanner.nextLine();
-        // int key = scanner.nextInt();
 
-        // System.out.println(keyEncrypt(message, key));
+        String mode = "enc";
+        String data = "";
+        int key = 0;
 
-        // if (dir.equals("enc")) {
-        //     System.out.println(keyEncrypt(message, key));
-        // } else {
-        //     System.out.println(keyDecrypt(message, key));
-        // }
-
-        switch(args[0]) {
-            case "-mode":
-                if ("enc".equals(args[1])){
-                    if("-key".equals(args[2])){
-                        keyEncrypt(args[5], Integer.parseInt(args[3]));
+        for (int i = 0; i < args.length; i++) {
+            if (i + 1 < args.length) {
+                switch (args[i]) {
+                    case("-mode"):
+                        mode = args[i+1];
                         break;
-                    } else if ("-data" ==  args[2]){
-                        keyEncrypt(args[3], 0);
+                    case("-key"):
+                        key = Integer.parseInt(args[i+1]);
                         break;
-                    } else {
-                        keyEncrypt("", 0);
+                    case("-data"):
+                        data = args[i+1];
                         break;
-                    }
-                } else if ("dec".equals(args[1])){
-                    if("key".equals(args[2])){
-                        keyDecrypt(args[5], Integer.parseInt(args[3]));
-                        break;
-                    } else if ("-data" ==  args[2]){
-                        keyDecrypt(args[3], 0);
-                        break;
-                    } else {
-                        keyDecrypt("", 0);
-                        break;
-                    }
                 }
-            case ("-key"):
-                if ("-data" == args[2]) {
-                    keyEncrypt(args[1], Integer.parseInt(args[3]));
-                    break;
-                } else {
-                    keyEncrypt("", Integer.parseInt(args[3]));
-                    break;
-                }
-            case ("-data"):
-                keyEncrypt(args[1], 0);
 
-            default:
-                System.out.println("invalid input");
+            }
+        }
+
+        if ("enc".equals(mode)) {
+            keyEncrypt(data, key);
+        } else {
+            keyDecrypt(data, key);
         }
     }
+
+
+
+
+
+    // switch(args[0]) {
+    //     case "-mode":
+    //     if ("enc".equals(args[1])){
+    //         if("-key".equals(args[2])){
+    //             keyEncrypt(args[5], Integer.parseInt(args[3]));
+    //             break;
+    //         } else if ("-data" ==  args[2]){
+    //             keyEncrypt(args[3], 0);
+    //             break;
+    //         } else {
+    //             keyEncrypt("", 0);
+    //             break;
+    //         }
+    //     } else if ("dec".equals(args[1])){
+    //         if("key".equals(args[2])){
+    //             keyDecrypt(args[5], Integer.parseInt(args[3]));
+    //             break;
+    //         } else if ("-data" ==  args[2]){
+    //             keyDecrypt(args[3], 0);
+    //             break;
+    //         } else {
+    //             keyDecrypt("", 0);
+    //             break;
+    //         }
+    //     }
+    //     case ("-key"):
+    //         if ("-data" == args[2]) {
+    //             keyEncrypt(args[1], Integer.parseInt(args[3]));
+    //             break;
+    //         } else {
+    //             keyEncrypt("", Integer.parseInt(args[3]));
+    //                 break;
+    //             }
+    //         case ("-data"):
+    //               keyEncrypt(args[1], 0);
+
+    //         default:
+    //             System.out.println("invalid input");
+    //     }
+    // }
 }
