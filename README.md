@@ -39,6 +39,6 @@ Run the program using the Java main command. Insert the parameters and values of
       
       
       
-      ![image](https://github.com/mpmcgee/encryption-decryption/blob/main/UML.PNG)
+ ![image](https://github.com/mpmcgee/encryption-decryption/blob/main/UML.PNG)
 
        
