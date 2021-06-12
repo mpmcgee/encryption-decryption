@@ -36,4 +36,9 @@ Run the program using the Java main command. Insert the parameters and values of
       java Main -key 5 -alg shift -data "This is a message to be encoded" -mode enc
        
       java Main -mode enc -in road_to_treasure.txt -out protected.txt -key 5 -alg unicode
+      
+      
+      
+      ![image](https://user-images.githubusercontent.com/66638526/121790085-db0e6f80-cba9-11eb-978c-2c75abbf29f3.png)
+
        
