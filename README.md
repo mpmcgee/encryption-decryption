@@ -30,6 +30,8 @@ Run the program using the Java main command. Insert the parameters and values of
    -alg:
        shift
        unicode
+
+####Note: Paramters can be entered in any order and not all are required. If unspecified, mode defaults to encrypt, algorithm to shift, and key to 0.
        
 
 ### Sample input:
