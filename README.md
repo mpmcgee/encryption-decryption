@@ -12,11 +12,11 @@ Run the program using the Java main command. Insert the parameters and values of
 
 #### in: Encrypt or decrypt text from a file
 -in:
-  <filename>
+  filename
 
 #### out: Save output in a file
   out: 
-   <filename>
+   filename
 
 #### key: The number you would like to offset each character by
   -key:
