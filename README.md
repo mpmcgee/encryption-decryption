@@ -38,7 +38,8 @@ Run the program using the Java main command. Insert the parameters and values of
       java Main -mode enc -in road_to_treasure.txt -out protected.txt -key 5 -alg unicode
       
       
-      
+# UML Diagram:
+### Strategy Design Pattern
  ![image](https://github.com/mpmcgee/encryption-decryption/blob/main/UML.PNG)
 
        
