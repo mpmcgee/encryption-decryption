@@ -45,4 +45,5 @@ Paramters can be entered in any order and not all are required. If unspecified, 
 ### Strategy Design Pattern
  ![image](https://github.com/mpmcgee/encryption-decryption/blob/main/UML.PNG)
 
-       
+#### Note
+The strategy pattern was used similary for the decryption algorithms
